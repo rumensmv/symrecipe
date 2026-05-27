@@ -1,0 +1,53 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}SymRecipe - Mes recettes{% endblock %}
+
+{% block body %}
+    <div class="container mt-4">
+
+        <h1>Mes recettes</h1>
+
+        {% if recipes is not empty %}
+
+            <table class="table table-hover">
+                <thead>
+                    <tr class="table-primary">
+                        <th>Nom</th>
+                        <th>Temps</th>
+                        <th>Personnes</th>
+                        <th>Difficulté</th>
+                        <th>Prix</th>
+                        <th>Favori</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+                    {% for recipe in recipes %}
+                        <tr class="table-light">
+                            <td>{{ recipe.name }}</td>
+                            <td>{{ recipe.time }}</td>
+                            <td>{{ recipe.nbPersons }}</td>
+                            <td>{{ recipe.difficulty }}</td>
+                            <td>{{ recipe.price }}</td>
+                            <td>
+                                {% if recipe.isFavorite %}
+                                    Oui
+                                {% else %}
+                                    Non
+                                {% endif %}
+                            </td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+
+            <div class="navigation d-flex justify-content-center mt-4">
+                {{ knp_pagination_render(recipes) }}
+            </div>
+
+        {% else %}
+            <h4>Il n'y a aucune recette pour le moment</h4>
+        {% endif %}
+
+    </div>
+{% endblock %}
