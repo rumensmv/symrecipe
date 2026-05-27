@@ -1,0 +1,55 @@
+{% extends "base.html.twig" %}
+
+{% block body %}
+<div class="container">
+    <h1 class="mt-4">Modifier une recette</h1>
+
+    {{ form_start(form) }}
+
+    <div class="mb-3">
+        {{ form_label(form.name) }}
+        {{ form_widget(form.name, {'attr': {'class': 'form-control'}}) }}
+        {{ form_errors(form.name) }}
+    </div>
+
+    <div class="mb-3">
+        {{ form_label(form.time) }}
+        {{ form_widget(form.time, {'attr': {'class': 'form-control'}}) }}
+        {{ form_errors(form.time) }}
+    </div>
+
+    <div class="mb-3">
+        {{ form_label(form.nbPersons) }}
+        {{ form_widget(form.nbPersons, {'attr': {'class': 'form-control'}}) }}
+        {{ form_errors(form.nbPersons) }}
+    </div>
+
+    <div class="mb-3">
+        {{ form_label(form.difficulty) }}
+        {{ form_widget(form.difficulty, {'attr': {'class': 'form-range'}}) }}
+        {{ form_errors(form.difficulty) }}
+    </div>
+
+    <div class="mb-3">
+        {{ form_label(form.description) }}
+        {{ form_widget(form.description, {'attr': {'class': 'form-control'}}) }}
+        {{ form_errors(form.description) }}
+    </div>
+
+    <div class="mb-3">
+        {{ form_label(form.price) }}
+        {{ form_widget(form.price, {'attr': {'class': 'form-control'}}) }}
+        {{ form_errors(form.price) }}
+    </div>
+
+    <div class="mb-3">
+        {{ form_label(form.isFavorite) }}
+        {{ form_widget(form.isFavorite) }}
+        {{ form_errors(form.isFavorite) }}
+    </div>
+
+    <button class="btn btn-primary">Modifier</button>
+
+    {{ form_end(form) }}
+</div>
+{% endblock %}

@@ -9,6 +9,7 @@
                 {{ message }}
             </div>
         {% endfor %}
+
         <h1>Mes ingrédients</h1>
 
         {% if ingredients is not empty %}
@@ -20,6 +21,7 @@
                         <th>Nom</th>
                         <th>Prix</th>
                         <th>Date de création</th>
+                        <th>Actions</th>
                     </tr>
                 </thead>
 
@@ -30,6 +32,17 @@
                             <td>{{ ingredient.name }}</td>
                             <td>{{ ingredient.price }}</td>
                             <td>{{ ingredient.createdAt|date('d/m/Y') }}</td>
+
+                            <td>
+                                <a href="{{ path('ingredient_edit', {'id': ingredient.id}) }}" class="btn btn-warning">
+                                    Modifier
+                                </a>
+
+                                <a href="{{ path('ingredient_delete', {'id': ingredient.id}) }}" class="btn btn-danger">
+                                    Supprimer
+                                </a>
+                            </td>
+
                         </tr>
                     {% endfor %}
                 </tbody>

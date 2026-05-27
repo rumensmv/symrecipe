@@ -18,6 +18,7 @@
                         <th>Difficulté</th>
                         <th>Prix</th>
                         <th>Favori</th>
+                        <th>Actions</th>
                     </tr>
                 </thead>
 
@@ -29,6 +30,7 @@
                             <td>{{ recipe.nbPersons }}</td>
                             <td>{{ recipe.difficulty }}</td>
                             <td>{{ recipe.price }}</td>
+
                             <td>
                                 {% if recipe.isFavorite %}
                                     Oui
@@ -36,6 +38,17 @@
                                     Non
                                 {% endif %}
                             </td>
+
+                            <td>
+                                <a href="{{ path('recipe_edit', {'id': recipe.id}) }}" class="btn btn-warning">
+                                    Modifier
+                                </a>
+
+                                <a href="{{ path('recipe_delete', {'id': recipe.id}) }}" class="btn btn-danger">
+                                    Supprimer
+                                </a>
+                            </td>
+
                         </tr>
                     {% endfor %}
                 </tbody>
